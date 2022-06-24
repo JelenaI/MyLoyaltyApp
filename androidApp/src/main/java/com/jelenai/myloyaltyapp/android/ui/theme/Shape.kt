@@ -1,4 +1,4 @@
-package com.jetbrains.kmmktor2.android.ui.theme
+package com.jelenai.myloyaltyapp.android.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
