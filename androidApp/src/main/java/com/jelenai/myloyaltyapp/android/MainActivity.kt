@@ -1,20 +1,32 @@
 package com.jelenai.myloyaltyapp.android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import com.jelenai.myloyaltyapp.Greeting
-import android.widget.TextView
-
-fun greet(): String {
-    return Greeting().greeting()
-}
+import com.jetbrains.kmmktor2.android.ui.theme.MyLoyaltyAppTheme
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val tv: TextView = findViewById(R.id.text_view)
-        tv.text = greet()
+        setContent {
+            MyLoyaltyAppTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                ) {
+                    Greet()
+                }
+            }
+        }
     }
+}
+
+@Composable
+fun Greet() {
+    Text(text = Greeting().greeting())
 }
