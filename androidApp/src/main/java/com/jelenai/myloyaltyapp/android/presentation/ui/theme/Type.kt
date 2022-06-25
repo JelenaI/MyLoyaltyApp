@@ -47,6 +47,12 @@ val Typography = Typography(
         fontSize = 18.sp,
         color = DarkGray
     ),
+    h4 = TextStyle(
+        fontFamily = lexend,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp,
+        color = AccentGreen
+    ),
     button = TextStyle(
         fontFamily = lexend,
         fontWeight = FontWeight.Normal,

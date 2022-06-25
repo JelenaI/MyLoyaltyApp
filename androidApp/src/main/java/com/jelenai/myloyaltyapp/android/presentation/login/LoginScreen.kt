@@ -1,5 +1,6 @@
 package com.jelenai.myloyaltyapp.android.presentation.login
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
@@ -19,9 +20,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.jelenai.myloyaltyapp.android.R
 import com.jelenai.myloyaltyapp.android.presentation.components.StandardTextField
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.AccentGreen
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceHuge
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceLarge
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceMedium
+import com.jelenai.myloyaltyapp.android.presentation.util.Screen
 
 @Composable
 fun LoginScreen(
@@ -75,8 +78,7 @@ fun LoginScreen(
                     shape = RoundedCornerShape(8.dp),
                     elevation = ButtonDefaults.elevation(
                         defaultElevation = 6.dp,
-                        pressedElevation = 8.dp,
-                        disabledElevation = 0.dp
+                        pressedElevation = 8.dp
                     ),
                     onClick = {}
                 ) {
@@ -86,21 +88,23 @@ fun LoginScreen(
                 }
             }
         }
-        Text(
-            text = buildAnnotatedString {
-                append(stringResource(id = R.string.dont_have_an_account_yet))
-                append(" ")
-                val signUpText = stringResource(id = R.string.sign_up)
-                withStyle(
-                    style = SpanStyle(
-                        color = MaterialTheme.colors.primary
-                    )
-                ) {
-                    append(signUpText)
-                }
-            },
-            style = MaterialTheme.typography.body1,
-            modifier = Modifier.align(Alignment.BottomCenter)
-        )
+        Row(modifier = Modifier.align(Alignment.BottomCenter)) {
+            Text(
+                text = buildAnnotatedString {
+                    append(stringResource(id = R.string.dont_have_an_account_yet))
+                    append(" ")
+                },
+                style = MaterialTheme.typography.body1
+            )
+            Text(
+                text = stringResource(id = R.string.sign_up),
+                style = MaterialTheme.typography.h4,
+                color = AccentGreen,
+                modifier = Modifier
+                    .clickable {
+                        navController.navigate(Screen.RegisterScreen.route)
+                    }
+            )
+        }
     }
 }
