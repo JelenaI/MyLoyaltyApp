@@ -4,6 +4,7 @@ import android.view.animation.OvershootInterpolator
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -15,6 +16,7 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import com.jelenai.myloyaltyapp.android.R
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGreen
 import com.jelenai.myloyaltyapp.android.presentation.util.Screen
 import com.jelenai.myloyaltyapp.android.util.Constants
 import kotlinx.coroutines.delay
@@ -40,10 +42,12 @@ fun SplashScreen(navController: NavController) {
     }
     Box(
         contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .background(LightGreen)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.logo),
+            painter = painterResource(id = R.drawable.logo_transparent),
             contentDescription = "Logo",
             modifier = Modifier.scale(scale.value)
         )

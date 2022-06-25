@@ -3,6 +3,7 @@
     package="com.jelenai.myloyaltyapp.android">
 
     <application
+        android:name=".MyLoyaltyAppApplication"
         android:allowBackup="false"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">

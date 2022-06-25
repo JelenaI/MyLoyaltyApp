@@ -21,13 +21,13 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.jelenai.myloyaltyapp.android.BottomNavigationBar
 import com.jelenai.myloyaltyapp.android.BottomNavigationItem
-import com.jelenai.myloyaltyapp.android.presentation.registration.RegisterScreen
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.MyLoyaltyAppTheme
 import com.jelenai.myloyaltyapp.android.presentation.util.Navigation
 import com.jelenai.myloyaltyapp.android.presentation.util.Screen
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGreen
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.MyLoyaltyAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.first
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     val Context.dataStore by preferencesDataStore(name = "settings")
 
@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity() {
                     val currentRoute = navBackStackEntry?.destination?.route
 
                     Scaffold(
-                        backgroundColor = LightGreen,
                         bottomBar = {
                             if (currentRoute != Screen.SplashScreen.route &&
                                     currentRoute != Screen.LoginScreen.route &&

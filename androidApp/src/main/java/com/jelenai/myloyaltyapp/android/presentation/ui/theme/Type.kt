@@ -16,12 +16,17 @@ val lexend = FontFamily(
     Font(R.font.lexend_bold, FontWeight.Bold),
 )
 
-// Set of Material typography styles to start with
 val Typography = Typography(
     body1 = TextStyle(
         fontFamily = lexend,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
+        color = TextBlack
+    ),
+    body2 = TextStyle(
+        fontFamily = lexend,
+        fontWeight = FontWeight.Normal,
+        fontSize = 12.sp,
         color = TextBlack
     ),
     h1 = TextStyle(
@@ -36,10 +41,16 @@ val Typography = Typography(
         fontSize = 24.sp,
         color = TextBlack
     ),
-    body2 = TextStyle(
+    h3 = TextStyle(
         fontFamily = lexend,
         fontWeight = FontWeight.Normal,
-        fontSize = 12.sp,
-        color = TextBlack
+        fontSize = 18.sp,
+        color = DarkGray
+    ),
+    button = TextStyle(
+        fontFamily = lexend,
+        fontWeight = FontWeight.Normal,
+        fontSize = 18.sp,
+        color = DarkGray
     )
 )
