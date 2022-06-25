@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android.ui.theme
+package com.jelenai.myloyaltyapp.android.presentation.ui.theme
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.lightColors

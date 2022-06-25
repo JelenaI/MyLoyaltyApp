@@ -10,10 +10,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.jelenai.myloyaltyapp.android.ui.theme.AccentGreen
-import com.jelenai.myloyaltyapp.android.ui.theme.DarkGreen
-import com.jelenai.myloyaltyapp.android.ui.theme.LightGray
-import com.jelenai.myloyaltyapp.android.ui.theme.TextWhite
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.AccentGreen
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.DarkGreen
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGray
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextWhite
 
 @Composable
 fun BottomNavigationBar(

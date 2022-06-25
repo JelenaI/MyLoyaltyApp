@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android
+package com.jelenai.myloyaltyapp.android.presentation.util
 
 sealed class Screen(val route: String) {
     object SplashScreen: Screen("splash_screen")

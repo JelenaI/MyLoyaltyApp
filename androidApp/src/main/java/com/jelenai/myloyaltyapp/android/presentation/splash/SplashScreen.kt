@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android
+package com.jelenai.myloyaltyapp.android.presentation.splash
 
 import android.view.animation.OvershootInterpolator
 import androidx.compose.animation.core.Animatable
@@ -14,6 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
+import com.jelenai.myloyaltyapp.android.R
+import com.jelenai.myloyaltyapp.android.presentation.util.Screen
+import com.jelenai.myloyaltyapp.android.util.Constants
 import kotlinx.coroutines.delay
 
 @Composable
@@ -31,7 +34,7 @@ fun SplashScreen(navController: NavController) {
                 }
             )
         )
-        delay(3000L)
+        delay(Constants.SPLASH_SCREEN_DURATION)
         navController.navigate(Screen.HomeScreen.route)
     }
     Box(

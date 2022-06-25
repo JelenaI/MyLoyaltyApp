@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android
+package com.jelenai.myloyaltyapp.android.presentation
 
 import android.content.Context
 import android.os.Bundle
@@ -19,8 +19,12 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.jelenai.myloyaltyapp.android.ui.theme.LightGreen
-import com.jelenai.myloyaltyapp.android.ui.theme.MyLoyaltyAppTheme
+import com.jelenai.myloyaltyapp.android.BottomNavigationBar
+import com.jelenai.myloyaltyapp.android.BottomNavigationItem
+import com.jelenai.myloyaltyapp.android.presentation.util.Navigation
+import com.jelenai.myloyaltyapp.android.presentation.util.Screen
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGreen
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.MyLoyaltyAppTheme
 import kotlinx.coroutines.flow.first
 
 class MainActivity : AppCompatActivity() {

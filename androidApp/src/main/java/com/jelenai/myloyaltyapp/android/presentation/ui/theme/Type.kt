@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android.ui.theme
+package com.jelenai.myloyaltyapp.android.presentation.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
