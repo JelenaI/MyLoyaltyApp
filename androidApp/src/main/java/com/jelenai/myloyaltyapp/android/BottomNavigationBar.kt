@@ -5,12 +5,15 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.jelenai.myloyaltyapp.android.ui.theme.AccentGreen
+import com.jelenai.myloyaltyapp.android.ui.theme.DarkGreen
+import com.jelenai.myloyaltyapp.android.ui.theme.LightGray
+import com.jelenai.myloyaltyapp.android.ui.theme.TextWhite
 
 @Composable
 fun BottomNavigationBar(
@@ -22,7 +25,7 @@ fun BottomNavigationBar(
     val backStackEntry = navController.currentBackStackEntryAsState()
     BottomNavigation(
         modifier = modifier,
-        backgroundColor = Color(3,65,77,255),
+        backgroundColor = DarkGreen,
         elevation = 5.dp
     ) {
         items.forEach { item ->
@@ -30,8 +33,8 @@ fun BottomNavigationBar(
             BottomNavigationItem(
                 selected = selected,
                 onClick = { onItemClick(item) },
-                selectedContentColor = Color.Green,
-                unselectedContentColor = Color.Gray,
+                selectedContentColor = AccentGreen,
+                unselectedContentColor = LightGray,
                 icon = {
                     Column(horizontalAlignment = CenterHorizontally) {
                         if (item.badgeCount > 0) {
@@ -53,7 +56,12 @@ fun BottomNavigationBar(
                         Text(
                             text = item.name,
                             textAlign = TextAlign.Center,
-                            fontSize = 10.sp
+                            fontSize = 10.sp,
+                            color = if (selected) {
+                                TextWhite
+                            } else {
+                                LightGray
+                            }
                         )
                     }
                 }

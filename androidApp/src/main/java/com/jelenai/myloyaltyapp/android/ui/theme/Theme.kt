@@ -6,11 +6,11 @@ import androidx.compose.runtime.Composable
 
 private val ColorPalette = lightColors(
     primary = AccentGreen,
-    background = White,
-    onBackground =  Black,
-    onPrimary = DarkGrey,
+    background = TextWhite,
+    onBackground =  TextBlack,
+    onPrimary = DarkGreen,
     surface = LightGreen,
-    onSurface = LightGrey
+    onSurface = LightGray
 )
 
 @Composable

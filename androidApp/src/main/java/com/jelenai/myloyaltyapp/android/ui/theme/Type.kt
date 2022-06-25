@@ -22,24 +22,24 @@ val Typography = Typography(
         fontFamily = lexend,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
-        color = Black
+        color = TextBlack
     ),
     h1 = TextStyle(
         fontFamily = lexend,
         fontWeight = FontWeight.Bold,
         fontSize = 30.sp,
-        color = Black
+        color = TextBlack
     ),
     h2 = TextStyle(
         fontFamily = lexend,
         fontWeight = FontWeight.Medium,
         fontSize = 24.sp,
-        color = Black
+        color = TextBlack
     ),
     body2 = TextStyle(
         fontFamily = lexend,
         fontWeight = FontWeight.Normal,
         fontSize = 12.sp,
-        color = Black
+        color = TextBlack
     )
 )
