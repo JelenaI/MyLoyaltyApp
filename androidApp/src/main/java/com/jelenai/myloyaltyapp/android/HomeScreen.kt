@@ -10,12 +10,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextBlack
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextWhite
 
 @Composable
 fun HomeScreen(navController: NavHostController) {// Initializing the QR Encoder with your value to be encoded, type you required and Dimension
@@ -23,7 +24,7 @@ fun HomeScreen(navController: NavHostController) {// Initializing the QR Encoder
 
     Column(
         modifier = Modifier
-            .background(Color.White)
+            .background(TextWhite)
             .padding(20.dp)
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -31,13 +32,13 @@ fun HomeScreen(navController: NavHostController) {// Initializing the QR Encoder
     ) {
         Text(
             text = "Dobro došli!", 
-            color = Color.Black, 
+            color = TextBlack,
             fontSize = 26.sp
         )
         Spacer(modifier = Modifier.height(20.dp))
         Text(
             text = "Prilikom kupovine kod partnera aplikacije, pokažite svoj QR kod",
-            color = Color.Black, 
+            color = TextBlack,
             fontSize = 16.sp,
             textAlign = TextAlign.Center,
         )

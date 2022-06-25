@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavHostController
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextBlack
 
 @Composable
 fun ProfileScreen(navController: NavHostController) {
@@ -15,6 +16,6 @@ fun ProfileScreen(navController: NavHostController) {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "PROFILE SCREEN", color = Color.Black)
+        Text(text = "PROFILE SCREEN", color = TextBlack)
     }
 }

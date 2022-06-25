@@ -21,6 +21,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.jelenai.myloyaltyapp.android.BottomNavigationBar
 import com.jelenai.myloyaltyapp.android.BottomNavigationItem
+import com.jelenai.myloyaltyapp.android.presentation.registration.RegisterScreen
 import com.jelenai.myloyaltyapp.android.presentation.util.Navigation
 import com.jelenai.myloyaltyapp.android.presentation.util.Screen
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGreen
@@ -45,7 +46,9 @@ class MainActivity : AppCompatActivity() {
                     Scaffold(
                         backgroundColor = LightGreen,
                         bottomBar = {
-                            if (currentRoute != Screen.SplashScreen.route) {
+                            if (currentRoute != Screen.SplashScreen.route &&
+                                    currentRoute != Screen.LoginScreen.route &&
+                                    currentRoute != Screen.RegisterScreen.route) {
                                 BottomNavigationBar(
                                     items = listOf(
                                         BottomNavigationItem(

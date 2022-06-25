@@ -6,8 +6,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavHostController
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextBlack
 
 @Composable
 fun PharmaciesScreen(navController: NavHostController) {
@@ -15,6 +15,6 @@ fun PharmaciesScreen(navController: NavHostController) {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "PHARMACIES SCREEN", color = Color.Black)
+        Text(text = "PHARMACIES SCREEN", color = TextBlack)
     }
 }
