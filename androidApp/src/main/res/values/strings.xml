@@ -11,8 +11,19 @@
     <string name="login_button_text">Prijavi se</string>
     <string name="register">Registracija</string>
     <string name="email_hint">E-mail</string>
-    <string name="username_hint">Username</string>
+    <string name="username_hint">Korisničko ime</string>
     <string name="register_button_text">Registruj se</string>
     <string name="already_have_an_account_yet">Već imaš nalog?</string>
     <string name="sign_in">Prijavi se!</string>
+    <string name="error_unknown">Nepoznata greška</string>
+    <string name="error_couldnt_reach_server">Ups! Server nije dostupan. Proveri internet konekciju.</string>
+    <string name="something_went_wrong">Ups! Nešto nije uredu. Pokušaj ponovo.</string>
+    <string name="error_field_empty">Ovo polje ne može biti prazno</string>
+    <string name="success_registration">Nalog je uspešno napravljen</string>
+    <string name="not_a_valid_email">Ovo nije validna e-mail adresa</string>
+    <string name="input_too_short">Najmanja dužina je %d</string>
+    <string name="invalid_password">Lozinka mora da sadrži bar jedno veliko slovo i bar jednu cifru</string>
+    <string name="first_name_hint">Ime</string>
+    <string name="last_name_hint">Prezime</string>
+    <string name="phone_number_hint">Broj telefona</string>
 </resources>
