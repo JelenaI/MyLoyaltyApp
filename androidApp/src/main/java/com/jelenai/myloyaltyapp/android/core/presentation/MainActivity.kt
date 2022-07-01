@@ -56,6 +56,6 @@ class MainActivity : AppCompatActivity() {
             Screen.PharmaciesScreen.route,
             Screen.MapScreen.route,
             Screen.ProfileScreen.route
-        )
+        ) || backStackEntry?.destination?.route?.contains(Screen.ProfileScreen.route) == true
     }
 }

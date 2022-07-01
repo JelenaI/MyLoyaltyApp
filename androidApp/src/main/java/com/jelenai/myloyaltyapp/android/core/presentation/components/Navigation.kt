@@ -6,14 +6,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.jelenai.myloyaltyapp.android.HomeScreen
-import com.jelenai.myloyaltyapp.android.MapScreen
-import com.jelenai.myloyaltyapp.android.PharmaciesScreen
-import com.jelenai.myloyaltyapp.android.ProfileScreen
+import androidx.navigation.navArgument
 import com.jelenai.myloyaltyapp.android.core.presentation.util.Screen
+import com.jelenai.myloyaltyapp.android.feature_auth.presentation.home.HomeScreen
 import com.jelenai.myloyaltyapp.android.feature_auth.presentation.login.LoginScreen
+import com.jelenai.myloyaltyapp.android.feature_pharm.presentation.map.MapScreen
+import com.jelenai.myloyaltyapp.android.feature_pharm.presentation.pharmacies.PharmaciesScreen
+import com.jelenai.myloyaltyapp.android.feature_profile.presentation.profile.ProfileScreen
 import com.jelenai.myloyaltyapp.android.presentation.registration.RegisterScreen
 import com.jelenai.myloyaltyapp.android.presentation.splash.SplashScreen
 
@@ -55,7 +57,7 @@ fun Navigation(
             )
         }
         composable(Screen.HomeScreen.route) {
-            HomeScreen(navController = navController)
+            HomeScreen()
         }
         composable(Screen.PharmaciesScreen.route) {
             PharmaciesScreen(navController = navController)
@@ -63,8 +65,22 @@ fun Navigation(
         composable(Screen.MapScreen.route) {
             MapScreen(navController = navController)
         }
-        composable(Screen.ProfileScreen.route) {
-            ProfileScreen(navController = navController)
+        composable(
+            route = Screen.ProfileScreen.route + "?userId={userId}",
+            arguments = listOf(
+                navArgument(name = "userId") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                }
+            )) {
+            ProfileScreen(
+                scaffoldState = scaffoldState,
+                onLogout = {
+                    navController.navigate(route = Screen.LoginScreen.route)
+                },
+                onNavigate = navController::navigate
+            )
         }
     }
 }
