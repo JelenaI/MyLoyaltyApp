@@ -26,4 +26,7 @@
     <string name="first_name_hint">Ime</string>
     <string name="last_name_hint">Prezime</string>
     <string name="phone_number_hint">Broj telefona</string>
+    <string name="welcome">Dobro došli!</string>
+    <string name="qr_instruction">Prilikom kupovine kod partnera aplikacije, pokažite svoj QR kod</string>
+    <string name="qr_description">QR code</string>
 </resources>

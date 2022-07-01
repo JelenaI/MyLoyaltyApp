@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android
+package com.jelenai.myloyaltyapp.android.feature_pharm.presentation.pharmacies
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,11 +10,11 @@ import androidx.navigation.NavHostController
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextBlack
 
 @Composable
-fun MapScreen(navController: NavHostController) {
+fun PharmaciesScreen(navController: NavHostController) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "MAP SCREEN", color = TextBlack)
+        Text(text = "PHARMACIES SCREEN", color = TextBlack)
     }
 }

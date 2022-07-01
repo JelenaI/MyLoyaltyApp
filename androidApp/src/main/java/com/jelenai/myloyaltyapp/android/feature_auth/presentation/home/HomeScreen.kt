@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android
+package com.jelenai.myloyaltyapp.android.feature_auth.presentation.home
 
 import androidmads.library.qrgenearator.QRGContents
 import androidmads.library.qrgenearator.QRGEncoder
@@ -11,16 +11,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.jelenai.myloyaltyapp.android.R
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceLarge
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceSmall
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextBlack
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextWhite
 
 @Composable
-fun HomeScreen(navController: NavHostController) {// Initializing the QR Encoder with your value to be encoded, type you required and Dimension
-    val qrgEncoder = QRGEncoder("www.matf.bg.ac.rs", null, QRGContents.Type.TEXT, 1000);
+fun HomeScreen(
+    viewModel: HomeViewModel = hiltViewModel()
+) {
+    val qrgEncoder = QRGEncoder(viewModel.userId,null, QRGContents.Type.TEXT, 1000);
+    qrgEncoder.colorBlack = TextBlack.hashCode()
+    qrgEncoder.colorWhite = TextWhite.hashCode()
 
     Column(
         modifier = Modifier
@@ -31,23 +39,23 @@ fun HomeScreen(navController: NavHostController) {// Initializing the QR Encoder
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "Dobro došli!", 
+            text = stringResource(id = R.string.welcome),
             color = TextBlack,
             fontSize = 26.sp
         )
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(SpaceLarge))
         Text(
-            text = "Prilikom kupovine kod partnera aplikacije, pokažite svoj QR kod",
+            text = stringResource(id = R.string.qr_instruction),
             color = TextBlack,
             fontSize = 16.sp,
             textAlign = TextAlign.Center,
         )
-        Spacer(modifier = Modifier.height(0.dp))
+        Spacer(modifier = Modifier.height(SpaceSmall))
         Image(
             modifier = Modifier
                 .scale(0.7f),
             bitmap = qrgEncoder.bitmap.asImageBitmap(),
-            contentDescription = "QR code"
+            contentDescription = stringResource(id = R.string.qr_description)
         )
     }
 }
