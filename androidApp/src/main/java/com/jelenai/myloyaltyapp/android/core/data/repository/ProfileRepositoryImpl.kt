@@ -1,10 +1,9 @@
 package com.jelenai.myloyaltyapp.android.core.data.repository
 
 import android.content.SharedPreferences
-import androidx.compose.ui.input.pointer.PointerInputScope
-import com.google.gson.Gson
 import com.jelenai.myloyaltyapp.android.R
 import com.jelenai.myloyaltyapp.android.core.domain.repository.ProfileRepository
+import com.jelenai.myloyaltyapp.android.core.domain.use_case.GetOwnUserIdUseCase
 import com.jelenai.myloyaltyapp.android.core.util.Resource
 import com.jelenai.myloyaltyapp.android.core.util.UiText
 import com.jelenai.myloyaltyapp.android.feature_profile.data.remote.ProfileApi
@@ -16,12 +15,12 @@ import java.io.IOException
 
 class ProfileRepositoryImpl(
     private val profileApi: ProfileApi,
-    private val gson: Gson,
-    private val sharedPreferences: SharedPreferences
+    private val sharedPreferences: SharedPreferences,
+    private val getOwnUserIdUseCase: GetOwnUserIdUseCase
 ) : ProfileRepository {
-    override suspend fun getProfile(userId: String): Resource<Profile> {
+    override suspend fun getProfile(): Resource<Profile> {
         return try {
-            val response = profileApi.getProfile(userId)
+            val response = profileApi.getProfile(getOwnUserIdUseCase())
             if (response.successful) {
                 Resource.Success(response.data?.toProfile())
             } else {

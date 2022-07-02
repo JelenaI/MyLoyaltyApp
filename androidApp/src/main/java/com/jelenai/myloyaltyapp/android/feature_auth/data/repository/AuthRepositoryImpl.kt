@@ -52,7 +52,7 @@ class AuthRepositoryImpl(
                     println("Overriding token with ${authResponse.token}")
                     sharedPreferences.edit()
                         .putString(Constants.KEY_JWT_TOKEN, authResponse.token)
-                        .putString(Constants.KEY_USER_ID, authResponse.token)
+                        .putString(Constants.KEY_USER_ID, authResponse.userId)
                         .apply()
                 }
                 Resource.Success(Unit)

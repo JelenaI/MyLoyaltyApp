@@ -28,7 +28,7 @@ import kotlinx.coroutines.flow.collectLatest
 @Composable
 fun ProfileScreen(
     scaffoldState: ScaffoldState,
-    userId: String? = null,
+//    userId: String? = null,
     onNavigate: (String) -> Unit = {},
     onLogout: () -> Unit = {},
     viewModel: ProfileViewModel = hiltViewModel()
@@ -38,7 +38,7 @@ fun ProfileScreen(
     val context = LocalContext.current
 
     LaunchedEffect(key1 = true) {
-        viewModel.getProfile(userId)
+        viewModel.getProfile()
         viewModel.eventFlow.collectLatest { event ->
             when (event) {
                 is UiEvent.ShowSnackbar -> {

@@ -7,6 +7,7 @@ class GetOwnUserIdUseCase(
     private val sharedPreferences: SharedPreferences
 ) {
     operator fun invoke(): String {
+        println("sharedPreferences.getString(Constants.KEY_USER_ID" + (sharedPreferences.getString(Constants.KEY_USER_ID, "") ?: ""))
         return (sharedPreferences.getString(Constants.KEY_USER_ID, "") ?: "")
     }
 }

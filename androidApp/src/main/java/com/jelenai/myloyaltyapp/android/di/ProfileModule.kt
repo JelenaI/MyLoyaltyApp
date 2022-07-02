@@ -1,9 +1,9 @@
 package com.jelenai.myloyaltyapp.android.di
 
 import android.content.SharedPreferences
-import com.google.gson.Gson
 import com.jelenai.myloyaltyapp.android.core.data.repository.ProfileRepositoryImpl
 import com.jelenai.myloyaltyapp.android.core.domain.repository.ProfileRepository
+import com.jelenai.myloyaltyapp.android.core.domain.use_case.GetOwnUserIdUseCase
 import com.jelenai.myloyaltyapp.android.feature_profile.data.remote.ProfileApi
 import com.jelenai.myloyaltyapp.android.feature_profile.domain.use_case.GetPointsUseCase
 import com.jelenai.myloyaltyapp.android.feature_profile.domain.use_case.GetProfileUseCase
@@ -36,10 +36,10 @@ object ProfileModule {
     @Singleton
     fun provideProfileRepository(
         profileApi: ProfileApi,
-        gson: Gson,
-        sharedPreferences: SharedPreferences
+        sharedPreferences: SharedPreferences,
+        getOwnUserIdUseCase: GetOwnUserIdUseCase
     ): ProfileRepository {
-        return ProfileRepositoryImpl(profileApi, gson, sharedPreferences)
+        return ProfileRepositoryImpl(profileApi, sharedPreferences, getOwnUserIdUseCase)
     }
 
     @Provides

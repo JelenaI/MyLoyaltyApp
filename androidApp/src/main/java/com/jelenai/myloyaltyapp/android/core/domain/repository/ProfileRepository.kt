@@ -6,7 +6,7 @@ import com.jelenai.myloyaltyapp.android.feature_profile.domain.model.Points
 import com.jelenai.myloyaltyapp.android.feature_profile.domain.model.Profile
 
 interface ProfileRepository {
-    suspend fun getProfile(userId: String): Resource<Profile>
+    suspend fun getProfile(): Resource<Profile>
 
     suspend fun getPoints(): Resource<List<Points>>
 

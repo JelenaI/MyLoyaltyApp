@@ -8,6 +8,6 @@ class GetProfileUseCase(
     private val repository: ProfileRepository
 ) {
     suspend operator fun invoke(userId: String) : Resource<Profile> {
-        return repository.getProfile(userId)
+        return repository.getProfile()
     }
 }

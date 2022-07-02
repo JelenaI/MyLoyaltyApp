@@ -66,16 +66,18 @@ fun Navigation(
             MapScreen(navController = navController)
         }
         composable(
-            route = Screen.ProfileScreen.route + "?userId={userId}",
-            arguments = listOf(
-                navArgument(name = "userId") {
-                    type = NavType.StringType
-                    nullable = true
-                    defaultValue = null
-                }
-            )) {
+            route = Screen.ProfileScreen.route// + "?userId={userId}",
+//            arguments = listOf(
+//                navArgument(name = "userId") {
+//                    type = NavType.StringType
+//                    nullable = true
+//                    defaultValue = null
+//                }
+//            )
+        ) {
             ProfileScreen(
                 scaffoldState = scaffoldState,
+//                userId = it.arguments?.getString("userId"),
                 onLogout = {
                     navController.navigate(route = Screen.LoginScreen.route)
                 },

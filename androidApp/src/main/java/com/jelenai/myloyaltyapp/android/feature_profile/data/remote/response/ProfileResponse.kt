@@ -3,7 +3,7 @@ package com.jelenai.myloyaltyapp.android.feature_profile.data.remote.response
 import com.jelenai.myloyaltyapp.android.feature_profile.domain.model.Profile
 
 data class ProfileResponse(
-    val userId: String,
+    val id: String,
     val firstName: String,
     val lastName: String,
     val phoneNumber: String,
@@ -12,7 +12,7 @@ data class ProfileResponse(
 ) {
     fun toProfile(): Profile {
         return Profile(
-            userId,
+            id,
             firstName,
             lastName,
             phoneNumber,

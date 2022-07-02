@@ -91,8 +91,8 @@ class RegisterViewModel @Inject constructor(
             _registerState.value = registerState.value.copy(isLoading = true)
             val registerResult = registerUseCase(
                 firstName = firstNameState.value.text,
-                lastName = firstNameState.value.text,
-                phoneNumber = firstNameState.value.text,
+                lastName = lastNameState.value.text,
+                phoneNumber = phoneNumberState.value.text,
                 email = emailState.value.text,
                 username = usernameState.value.text,
                 password = passwordState.value.text

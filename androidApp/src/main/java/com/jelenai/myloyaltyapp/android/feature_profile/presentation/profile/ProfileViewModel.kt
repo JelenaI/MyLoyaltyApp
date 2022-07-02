@@ -20,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val profileUseCase: ProfileUseCases,
-    private val getOwnUserId: GetOwnUserIdUseCase,
+    private val ownUserId: GetOwnUserIdUseCase,
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     private val _state = mutableStateOf(ProfileState())
@@ -47,14 +47,12 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
-    fun getProfile(userId: String?) {
+    fun getProfile() {
         viewModelScope.launch {
             _state.value = state.value.copy(
                 isLoading = true
             )
-            val result = profileUseCase.getProfile(
-                userId ?: getOwnUserId()
-            )
+            val result = profileUseCase.getProfile(ownUserId())
             when (result) {
                 is Resource.Success -> {
                     _state.value = state.value.copy(

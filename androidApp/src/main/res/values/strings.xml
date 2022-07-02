@@ -17,7 +17,7 @@
     <string name="sign_in">Prijavite se!</string>
     <string name="error_unknown">Nepoznata greška</string>
     <string name="error_couldnt_reach_server">Ups! Server nije dostupan. Proverite internet konekciju.</string>
-    <string name="something_went_wrong">Ups! Nešto nije uredu. Pokušajte ponovo.</string>
+    <string name="something_went_wrong">Ups! Nešto nije u redu. Pokušajte ponovo.</string>
     <string name="error_field_empty">Ovo polje ne može biti prazno</string>
     <string name="success_registration">Nalog je uspešno napravljen</string>
     <string name="not_a_valid_email">Ovo nije validna e-mail adresa</string>
