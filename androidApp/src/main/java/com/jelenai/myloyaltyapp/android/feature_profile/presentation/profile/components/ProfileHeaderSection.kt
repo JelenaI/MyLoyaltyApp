@@ -11,9 +11,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.jelenai.myloyaltyapp.android.R
 import com.jelenai.myloyaltyapp.android.core.domain.models.User
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceMedium
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceSmall
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextBlack
 
 @Composable
 fun ProfileHeaderSection(
@@ -23,12 +26,30 @@ fun ProfileHeaderSection(
 ) {
     Column(
         modifier = modifier
-            .fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .fillMaxWidth()
+            .padding(SpaceMedium),
+        horizontalAlignment = Alignment.Start,
     ) {
-        Text(
-            text = user.firstName + " " + user.lastName
-        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = user.firstName + " " + user.lastName,
+                fontSize = 26.sp
+            )
+            IconButton(
+                onClick = onLogoutClick,
+                modifier = Modifier.size(30.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Logout,
+                    contentDescription = stringResource(id = R.string.logout),
+                    tint = TextBlack
+                )
+            }
+        }
         Spacer(modifier = Modifier.height(SpaceSmall))
         Text(
             text = user.username
@@ -41,15 +62,5 @@ fun ProfileHeaderSection(
         Text(
             text = user.phoneNumber
         )
-        Spacer(modifier = Modifier.width(SpaceSmall))
-        IconButton(
-            onClick = onLogoutClick,
-            modifier = Modifier.size(30.dp)
-        ) {
-            Icon(
-                imageVector = Icons.Default.Logout,
-                contentDescription = stringResource(id = R.string.logout)
-            )
-        }
     }
 }

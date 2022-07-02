@@ -59,6 +59,7 @@ fun StandardScaffold(
                                 selected = navController.currentDestination?.route?.startsWith(item.route) == true,
                             ) {
                                 if (navController.currentDestination?.route != item.route) {
+                                    navController.popBackStack()
                                     navController.navigate(item.route)
                                 }
                             }

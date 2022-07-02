@@ -33,4 +33,6 @@
     <string name="do_you_want_to_logout">Da li hoćete da se odjavite?</string>
     <string name="no">Ne</string>
     <string name="yes">Da</string>
+    <string name="pharmacy">Apoteka</string>
+    <string name="points">Poeni</string>
 </resources>

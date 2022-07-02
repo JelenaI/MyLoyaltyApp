@@ -6,5 +6,6 @@ data class Profile(
     val lastName: String,
     val phoneNumber: String,
     val email: String,
-    val username: String
+    val username: String,
+    val points: List<Points>
 )

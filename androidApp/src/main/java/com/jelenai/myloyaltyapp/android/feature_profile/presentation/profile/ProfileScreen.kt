@@ -3,8 +3,8 @@ package com.jelenai.myloyaltyapp.android.feature_profile.presentation.profile
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.Text
@@ -15,25 +15,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.jelenai.myloyaltyapp.android.R
 import com.jelenai.myloyaltyapp.android.core.domain.models.User
 import com.jelenai.myloyaltyapp.android.core.presentation.UiEvent
 import com.jelenai.myloyaltyapp.android.core.presentation.util.asString
+import com.jelenai.myloyaltyapp.android.feature_profile.presentation.profile.components.Points
 import com.jelenai.myloyaltyapp.android.feature_profile.presentation.profile.components.ProfileHeaderSection
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGreen
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceLarge
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceMedium
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun ProfileScreen(
     scaffoldState: ScaffoldState,
-//    userId: String? = null,
-    onNavigate: (String) -> Unit = {},
     onLogout: () -> Unit = {},
     viewModel: ProfileViewModel = hiltViewModel()
 ) {
-    val lazyListState = rememberLazyListState()
+    val scrollState = rememberScrollState()
     val state = viewModel.state.value
     val context = LocalContext.current
 
@@ -49,64 +51,63 @@ fun ProfileScreen(
             }
         }
     }
-
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-//            .nestedScroll(nestedScrollConnection)
-    ) {
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize(),
-            state = lazyListState
+    Box(modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Top
         ) {
-            item {
-                state.profile?.let { profile ->
-                    ProfileHeaderSection(
-                        user = User(
-                            userId = profile.userId,
-                            username = profile.username,
-                            firstName = profile.firstName,
-                            lastName = profile.lastName,
-                            phoneNumber = profile.phoneNumber,
-                            email = profile.email
-                        ),
-                        onLogoutClick = {
-                            viewModel.onEvent(ProfileEvent.ShowLogoutDialog)
-                        }
+            ProfileHeaderSection(
+                modifier = Modifier.background(LightGreen),
+                user = User(
+                    userId = state.profile?.userId ?: "",
+                    username = state.profile?.username ?: "",
+                    firstName = state.profile?.firstName ?: "",
+                    lastName = state.profile?.lastName ?: "",
+                    phoneNumber = state.profile?.phoneNumber ?: "",
+                    email = state.profile?.email ?: ""
+                ),
+                onLogoutClick = {
+                    viewModel.onEvent(ProfileEvent.ShowLogoutDialog)
+                }
+            )
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(enabled = true, state = scrollState)
+                    .padding(SpaceMedium),
+                verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Spacer(modifier = Modifier.height(SpaceMedium))
+                Text(
+                    text = "Vaši poeni ostvareni u apotekama",
+                    fontSize = 20.sp
+                )
+                Spacer(modifier = Modifier.height(SpaceLarge))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.pharmacy),
+                        fontSize = 18.sp
+                    )
+                    Text(
+                        text = stringResource(id = R.string.points),
+                        fontSize = 18.sp
                     )
                 }
+                if (state.profile?.points?.isNotEmpty() == true) {
+                    Spacer(modifier = Modifier.height(SpaceMedium))
+                    for (points in state.profile.points) {
+                        Points(
+                            points = points
+                        )
+                    }
+                }
             }
-//            items(state.items.size) { i ->
-//                val post = pagingState.items[i]
-//                if (i >= pagingState.items.size - 1 && !pagingState.endReached && !pagingState.isLoading) {
-//                    viewModel.loadNextPosts()
-//                }
-//
-//                Post(
-//                    post = post,
-//                    imageLoader = imageLoader,
-//                    showProfileImage = false,
-//                    onPostClick = {
-//                        onNavigate(Screen.PostDetailScreen.route + "/${post.id}")
-//                    },
-//                    onCommentClick = {
-//                        onNavigate(Screen.PostDetailScreen.route + "/${post.id}?shouldShowKeyboard=true")
-//                    },
-//                    onLikeClick = {
-//                        viewModel.onEvent(ProfileEvent.LikePost(post.id))
-//                    },
-//                    onShareClick = {
-//                        context.sendSharePostIntent(post.id)
-//                    },
-//                    onDeleteClick = {
-//                        viewModel.onEvent(ProfileEvent.DeletePost(post))
-//                    }
-//                )
-//            }
-//            item {
-//                Spacer(modifier = Modifier.height(90.dp))
-//            }
         }
         if (state.isLogoutDialogVisible) {
             Dialog(onDismissRequest = {

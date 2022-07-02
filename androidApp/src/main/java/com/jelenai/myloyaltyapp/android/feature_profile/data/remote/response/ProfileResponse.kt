@@ -1,5 +1,6 @@
 package com.jelenai.myloyaltyapp.android.feature_profile.data.remote.response
 
+import com.jelenai.myloyaltyapp.android.feature_profile.domain.model.Points
 import com.jelenai.myloyaltyapp.android.feature_profile.domain.model.Profile
 
 data class ProfileResponse(
@@ -8,7 +9,8 @@ data class ProfileResponse(
     val lastName: String,
     val phoneNumber: String,
     val email: String,
-    val username: String
+    val username: String,
+    val points: List<Points>
 ) {
     fun toProfile(): Profile {
         return Profile(
@@ -17,7 +19,8 @@ data class ProfileResponse(
             lastName,
             phoneNumber,
             email,
-            username
+            username,
+            points
         )
     }
 }
