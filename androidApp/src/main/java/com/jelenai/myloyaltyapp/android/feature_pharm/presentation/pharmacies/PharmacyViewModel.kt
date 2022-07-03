@@ -1,16 +1,15 @@
-package com.jelenai.myloyaltyapp.android.feature_profile.presentation.profile
+package com.jelenai.myloyaltyapp.android.feature_pharm.presentation.pharmacies
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jelenai.myloyaltyapp.android.core.domain.use_case.GetOwnUserIdUseCase
 import com.jelenai.myloyaltyapp.android.core.presentation.UiEvent
+import com.jelenai.myloyaltyapp.android.core.presentation.util.Screen
 import com.jelenai.myloyaltyapp.android.core.util.Event
 import com.jelenai.myloyaltyapp.android.core.util.Resource
 import com.jelenai.myloyaltyapp.android.core.util.UiText
-import com.jelenai.myloyaltyapp.android.feature_profile.domain.use_case.ProfileUseCases
+import com.jelenai.myloyaltyapp.android.feature_pharm.domain.use_case.GetPharmaciesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -18,43 +17,43 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfileViewModel @Inject constructor(
-    private val profileUseCase: ProfileUseCases,
+class PharmacyViewModel @Inject constructor(
+    private val pharmaciesUseCase: GetPharmaciesUseCase,
 ) : ViewModel() {
-    private val _state = mutableStateOf(ProfileState())
-    val state: State<ProfileState> = _state
+    private val _state = mutableStateOf(PharmacyState())
+    val state: State<PharmacyState> = _state
 
     private val _eventFlow = MutableSharedFlow<Event>()
     val eventFlow = _eventFlow.asSharedFlow()
 
-    fun onEvent(event: ProfileEvent) {
+    fun onEvent(event: PharmacyEvent) {
         when (event) {
-            is ProfileEvent.Logout -> {
-                profileUseCase.logout()
+            is PharmacyEvent.ShowPharmacyOnMap -> {
+                UiEvent.Navigate(Screen.MapScreen.route)
             }
-            is ProfileEvent.ShowLogoutDialog -> {
+            is PharmacyEvent.ShowDetailsDialog -> {
                 _state.value = state.value.copy(
-                    isLogoutDialogVisible = true
+                    isDetailsDialogVisible = true
                 )
             }
-            is ProfileEvent.DismissLogoutDialog -> {
+            is PharmacyEvent.DismissDetailsDialog -> {
                 _state.value = state.value.copy(
-                    isLogoutDialogVisible = false
+                    isDetailsDialogVisible = false
                 )
             }
         }
     }
 
-    fun getProfile() {
+    fun getPharmacies() {
         viewModelScope.launch {
             _state.value = state.value.copy(
                 isLoading = true
             )
-            val result = profileUseCase.getProfile()
+            val result = pharmaciesUseCase()
             when (result) {
                 is Resource.Success -> {
                     _state.value = state.value.copy(
-                        profile = result.data,
+                        pharmacies = result.data,
                         isLoading = false
                     )
                 }

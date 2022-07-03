@@ -35,4 +35,6 @@
     <string name="yes">Da</string>
     <string name="pharmacy">Apoteka</string>
     <string name="points">Poeni</string>
+    <string name="points_description">Vaši poeni ostvareni u apotekama</string>
+    <string name="pharmacies_description">Apoteke u kojima možete koristiti pogodnosti aplikacije</string>
 </resources>

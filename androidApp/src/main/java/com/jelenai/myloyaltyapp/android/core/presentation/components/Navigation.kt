@@ -60,7 +60,7 @@ fun Navigation(
             HomeScreen()
         }
         composable(Screen.PharmaciesScreen.route) {
-            PharmaciesScreen(navController = navController)
+            PharmaciesScreen(scaffoldState = scaffoldState)
         }
         composable(Screen.MapScreen.route) {
             MapScreen(navController = navController)

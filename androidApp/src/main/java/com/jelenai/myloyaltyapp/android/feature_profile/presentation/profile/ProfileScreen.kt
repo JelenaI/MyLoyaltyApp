@@ -81,7 +81,7 @@ fun ProfileScreen(
             ) {
                 Spacer(modifier = Modifier.height(SpaceMedium))
                 Text(
-                    text = "Vaši poeni ostvareni u apotekama",
+                    text = stringResource(id = R.string.points_description),
                     fontSize = 20.sp
                 )
                 Spacer(modifier = Modifier.height(SpaceLarge))

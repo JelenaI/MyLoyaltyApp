@@ -7,7 +7,6 @@ import com.jelenai.myloyaltyapp.android.core.domain.use_case.GetOwnUserIdUseCase
 import com.jelenai.myloyaltyapp.android.core.util.Resource
 import com.jelenai.myloyaltyapp.android.core.util.UiText
 import com.jelenai.myloyaltyapp.android.feature_profile.data.remote.ProfileApi
-import com.jelenai.myloyaltyapp.android.feature_profile.domain.model.Points
 import com.jelenai.myloyaltyapp.android.feature_profile.domain.model.Profile
 import com.jelenai.myloyaltyapp.android.util.Constants
 import retrofit2.HttpException
@@ -28,28 +27,11 @@ class ProfileRepositoryImpl(
                     Resource.Error(UiText.DynamicString(msg))
                 } ?: Resource.Error(UiText.StringResource(R.string.error_unknown))
             }
-        } catch(e: IOException) {
+        } catch (e: IOException) {
             Resource.Error(
                 uiText = UiText.StringResource(R.string.error_couldnt_reach_server)
             )
-        } catch(e: HttpException) {
-            Resource.Error(
-                uiText = UiText.StringResource(R.string.something_went_wrong)
-            )
-        }
-    }
-
-    override suspend fun getPoints(): Resource<List<Points>> {
-        return try {
-            val response = profileApi.getPoints()
-            Resource.Success(
-                data = response.map { it.toPoints() }
-            )
-        } catch(e: IOException) {
-            Resource.Error(
-                uiText = UiText.StringResource(R.string.error_couldnt_reach_server)
-            )
-        } catch(e: HttpException) {
+        } catch (e: HttpException) {
             Resource.Error(
                 uiText = UiText.StringResource(R.string.something_went_wrong)
             )

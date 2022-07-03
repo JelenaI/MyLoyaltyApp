@@ -7,7 +7,7 @@ import com.jelenai.myloyaltyapp.android.feature_profile.domain.model.Profile
 class GetProfileUseCase(
     private val repository: ProfileRepository
 ) {
-    suspend operator fun invoke(userId: String) : Resource<Profile> {
+    suspend operator fun invoke(): Resource<Profile> {
         return repository.getProfile()
     }
 }

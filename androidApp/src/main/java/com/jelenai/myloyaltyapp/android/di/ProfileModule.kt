@@ -5,7 +5,6 @@ import com.jelenai.myloyaltyapp.android.core.data.repository.ProfileRepositoryIm
 import com.jelenai.myloyaltyapp.android.core.domain.repository.ProfileRepository
 import com.jelenai.myloyaltyapp.android.core.domain.use_case.GetOwnUserIdUseCase
 import com.jelenai.myloyaltyapp.android.feature_profile.data.remote.ProfileApi
-import com.jelenai.myloyaltyapp.android.feature_profile.domain.use_case.GetPointsUseCase
 import com.jelenai.myloyaltyapp.android.feature_profile.domain.use_case.GetProfileUseCase
 import com.jelenai.myloyaltyapp.android.feature_profile.domain.use_case.LogoutUseCase
 import com.jelenai.myloyaltyapp.android.feature_profile.domain.use_case.ProfileUseCases
@@ -47,7 +46,6 @@ object ProfileModule {
     fun provideProfileUseCases(repository: ProfileRepository): ProfileUseCases {
         return ProfileUseCases(
             getProfile = GetProfileUseCase(repository),
-            getPoints = GetPointsUseCase(repository),
             logout = LogoutUseCase(repository)
         )
     }
