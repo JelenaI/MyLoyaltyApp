@@ -5,6 +5,7 @@ import com.jelenai.myloyaltyapp.android.core.domain.repository.PharmacyRepositor
 import com.jelenai.myloyaltyapp.android.core.util.Resource
 import com.jelenai.myloyaltyapp.android.core.util.UiText
 import com.jelenai.myloyaltyapp.android.feature_pharm.data.remote.PharmacyApi
+import com.jelenai.myloyaltyapp.android.feature_pharm.domain.model.Branch
 import com.jelenai.myloyaltyapp.android.feature_pharm.domain.model.Pharmacy
 import retrofit2.HttpException
 import java.io.IOException
@@ -18,6 +19,25 @@ class PharmacyRepositoryImpl(
             Resource.Success(
                 data = response.map {
                     it.toPharmacy()
+                }
+            )
+        } catch (e: IOException) {
+            Resource.Error(
+                uiText = UiText.StringResource(R.string.error_couldnt_reach_server)
+            )
+        } catch (e: HttpException) {
+            Resource.Error(
+                uiText = UiText.StringResource(R.string.something_went_wrong)
+            )
+        }
+    }
+
+    override suspend fun getBranches(): Resource<List<Branch>> {
+        return try {
+            val response = pharmacyApi.getBranches()
+            Resource.Success(
+                data = response.map {
+                    it.toBranch()
                 }
             )
         } catch (e: IOException) {

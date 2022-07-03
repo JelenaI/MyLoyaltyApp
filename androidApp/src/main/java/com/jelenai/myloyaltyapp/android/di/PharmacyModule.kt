@@ -3,6 +3,7 @@ package com.jelenai.myloyaltyapp.android.di
 import com.jelenai.myloyaltyapp.android.core.data.repository.PharmacyRepositoryImpl
 import com.jelenai.myloyaltyapp.android.core.domain.repository.PharmacyRepository
 import com.jelenai.myloyaltyapp.android.feature_pharm.data.remote.PharmacyApi
+import com.jelenai.myloyaltyapp.android.feature_pharm.domain.use_case.GetBranchesUseCase
 import com.jelenai.myloyaltyapp.android.feature_pharm.domain.use_case.GetPharmaciesUseCase
 import dagger.Module
 import dagger.Provides
@@ -15,7 +16,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class PharmacyModule {
+object PharmacyModule {
     @Provides
     @Singleton
     fun providePharmacyApi(client: OkHttpClient): PharmacyApi {
@@ -37,5 +38,11 @@ class PharmacyModule {
     @Singleton
     fun providePharmacyUseCase(repository: PharmacyRepository): GetPharmaciesUseCase {
         return GetPharmaciesUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideBranchesUseCase(repository: PharmacyRepository): GetBranchesUseCase {
+        return GetBranchesUseCase(repository)
     }
 }

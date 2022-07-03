@@ -63,7 +63,7 @@ fun Navigation(
             PharmaciesScreen(scaffoldState = scaffoldState)
         }
         composable(Screen.MapScreen.route) {
-            MapScreen(navController = navController)
+            MapScreen(scaffoldState = scaffoldState)
         }
         composable(
             route = Screen.ProfileScreen.route
