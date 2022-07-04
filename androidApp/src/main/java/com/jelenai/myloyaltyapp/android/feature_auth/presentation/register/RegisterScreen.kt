@@ -189,12 +189,6 @@ fun RegisterScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Button(
-                    shape = RoundedCornerShape(8.dp),
-                    elevation = ButtonDefaults.elevation(
-                        defaultElevation = 6.dp,
-                        pressedElevation = 8.dp,
-                        disabledElevation = 0.dp
-                    ),
                     onClick = {
                         viewModel.onEvent(RegisterEvent.Register)
                     }

@@ -19,6 +19,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import com.jelenai.myloyaltyapp.android.R
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.DarkGray
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGray
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextBlack
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextWhite
@@ -85,7 +86,7 @@ fun StandardTextField(
                             } else {
                                 Icons.Filled.VisibilityOff
                             },
-                            tint = TextBlack,
+                            tint = DarkGray,
                             contentDescription = if (isPasswordVisible) {
                                 stringResource(id = R.string.password_visible_content_description)
                             } else {
