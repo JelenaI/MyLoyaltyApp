@@ -22,7 +22,7 @@ import com.jelenai.myloyaltyapp.android.R
 import com.jelenai.myloyaltyapp.android.core.domain.models.User
 import com.jelenai.myloyaltyapp.android.core.presentation.UiEvent
 import com.jelenai.myloyaltyapp.android.core.presentation.util.asString
-import com.jelenai.myloyaltyapp.android.feature_profile.presentation.profile.components.Points
+import com.jelenai.myloyaltyapp.android.feature_profile.presentation.profile.components.PointsSection
 import com.jelenai.myloyaltyapp.android.feature_profile.presentation.profile.components.ProfileHeaderSection
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGreen
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceLarge
@@ -35,7 +35,6 @@ fun ProfileScreen(
     onLogout: () -> Unit = {},
     viewModel: ProfileViewModel = hiltViewModel()
 ) {
-    val scrollState = rememberScrollState()
     val state = viewModel.state.value
     val context = LocalContext.current
 
@@ -74,7 +73,6 @@ fun ProfileScreen(
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .verticalScroll(enabled = true, state = scrollState)
                     .padding(SpaceMedium),
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -85,27 +83,11 @@ fun ProfileScreen(
                     fontSize = 20.sp
                 )
                 Spacer(modifier = Modifier.height(SpaceLarge))
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceEvenly,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        text = stringResource(id = R.string.pharmacy),
-                        fontSize = 18.sp
-                    )
-                    Text(
-                        text = stringResource(id = R.string.points),
-                        fontSize = 18.sp
-                    )
-                }
                 if (state.profile?.points?.isNotEmpty() == true) {
                     Spacer(modifier = Modifier.height(SpaceMedium))
-                    for (points in state.profile.points) {
-                        Points(
-                            points = points
-                        )
-                    }
+                    PointsSection(
+                        points = state.profile.points
+                    )
                 }
             }
         }
