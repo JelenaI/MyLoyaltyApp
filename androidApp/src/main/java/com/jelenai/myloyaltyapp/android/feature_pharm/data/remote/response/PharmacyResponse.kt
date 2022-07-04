@@ -5,11 +5,13 @@ import com.jelenai.myloyaltyapp.android.feature_pharm.domain.model.Pharmacy
 
 data class PharmacyResponse(
     val name: String,
+    val loyaltyDescription: String,
     val branches: List<Branch>
 ) {
     fun toPharmacy(): Pharmacy {
         return Pharmacy(
             name,
+            loyaltyDescription,
             branches
         )
     }

@@ -3,8 +3,6 @@ package com.jelenai.myloyaltyapp.android.feature_pharm.presentation.pharmacies
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.Text
@@ -19,17 +17,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavHostController
 import com.jelenai.myloyaltyapp.android.R
 import com.jelenai.myloyaltyapp.android.core.presentation.UiEvent
 import com.jelenai.myloyaltyapp.android.core.presentation.util.asString
-import com.jelenai.myloyaltyapp.android.feature_pharm.presentation.pharmacies.components.PharmacySection
-import com.jelenai.myloyaltyapp.android.feature_profile.presentation.profile.ProfileEvent
-import com.jelenai.myloyaltyapp.android.feature_profile.presentation.profile.components.Points
+import com.jelenai.myloyaltyapp.android.feature_pharm.presentation.pharmacies.components.PharmaciesSection
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGray
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceHuge
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceLarge
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceMedium
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextBlack
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
@@ -37,7 +31,6 @@ fun PharmaciesScreen(
     scaffoldState: ScaffoldState,
     viewModel: PharmacyViewModel = hiltViewModel()
 ) {
-    val scrollState = rememberScrollState()
     val state = viewModel.state.value
     val context = LocalContext.current
 
@@ -60,9 +53,7 @@ fun PharmaciesScreen(
     ) {
         Column(
             modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(enabled = true, state = scrollState)
-                .padding(SpaceMedium),
+                .fillMaxSize(),
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -70,16 +61,14 @@ fun PharmaciesScreen(
             Text(
                 text = stringResource(id = R.string.pharmacies_description),
                 fontSize = 20.sp,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
-            Spacer(modifier = Modifier.height(SpaceHuge))
+            Spacer(modifier = Modifier.height(SpaceMedium))
             if (state.pharmacies?.isNotEmpty() == true) {
                 Spacer(modifier = Modifier.height(SpaceMedium))
-                for (pharmacy in state.pharmacies) {
-                    PharmacySection(
-                        pharmacy = pharmacy, viewModel = viewModel
-                    )
-                }
+                PharmaciesSection(
+                    pharmacies = state.pharmacies
+                )
             }
         }
         if (state.isDetailsDialogVisible) {

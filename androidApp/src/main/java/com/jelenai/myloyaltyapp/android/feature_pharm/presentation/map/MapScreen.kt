@@ -9,10 +9,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.MapUiSettings
 import com.google.maps.android.compose.Marker
+import com.google.maps.android.compose.rememberCameraPositionState
 import com.jelenai.myloyaltyapp.android.core.presentation.UiEvent
 import com.jelenai.myloyaltyapp.android.core.presentation.util.asString
 import kotlinx.coroutines.flow.collectLatest
@@ -24,6 +26,9 @@ fun MapScreen(
 ) {
     val state = viewModel.state.value
     val context = LocalContext.current
+    val cameraPositionState = rememberCameraPositionState {
+        position = CameraPosition.fromLatLngZoom(LatLng(44.810131, 20.443196), 12f)
+    }
 
     LaunchedEffect(key1 = true) {
         viewModel.getBranches()
@@ -49,11 +54,13 @@ fun MapScreen(
         modifier = Modifier.fillMaxSize(),
         properties = state.properties,
         uiSettings = uiSettings,
+        cameraPositionState = cameraPositionState
     ) {
         state.branches?.forEach { branch ->
             Marker(
                 position = LatLng(branch.latitude.toDouble(), branch.longitude.toDouble()),
-                title = "Pharmacy (${branch.latitude}, ${branch.longitude})",
+                title = branch.name,
+                snippet = branch.phoneNumber,
                 onClick = {
                     it.showInfoWindow()
                     true
