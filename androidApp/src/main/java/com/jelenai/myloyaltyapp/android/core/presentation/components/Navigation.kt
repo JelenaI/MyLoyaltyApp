@@ -6,10 +6,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
+import com.jelenai.myloyaltyapp.android.WindowInfo
 import com.jelenai.myloyaltyapp.android.core.presentation.util.Screen
 import com.jelenai.myloyaltyapp.android.feature_auth.presentation.home.HomeScreen
 import com.jelenai.myloyaltyapp.android.feature_auth.presentation.login.LoginScreen
@@ -23,7 +22,8 @@ import com.jelenai.myloyaltyapp.android.presentation.splash.SplashScreen
 @Composable
 fun Navigation(
     navController: NavHostController,
-    scaffoldState: ScaffoldState
+    scaffoldState: ScaffoldState,
+    windowInfo: WindowInfo
 ) {
     NavHost(
         navController = navController,
@@ -60,7 +60,10 @@ fun Navigation(
             HomeScreen()
         }
         composable(Screen.PharmaciesScreen.route) {
-            PharmaciesScreen(scaffoldState = scaffoldState)
+            PharmaciesScreen(
+                scaffoldState = scaffoldState,
+                windowInfo = windowInfo
+            )
         }
         composable(Screen.MapScreen.route) {
             MapScreen(scaffoldState = scaffoldState)
@@ -73,7 +76,8 @@ fun Navigation(
                 onLogout = {
                     navController.popBackStack()
                     navController.navigate(route = Screen.LoginScreen.route)
-                }
+                },
+                windowInfo = windowInfo
             )
         }
     }

@@ -16,6 +16,7 @@ import com.jelenai.myloyaltyapp.android.core.presentation.components.StandardSca
 import com.jelenai.myloyaltyapp.android.core.presentation.util.Screen
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.MyLoyaltyAppTheme
 import com.jelenai.myloyaltyapp.android.presentation.util.Navigation
+import com.jelenai.myloyaltyapp.android.rememberWindowInfo
 import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalComposeUiApi
@@ -27,6 +28,8 @@ class MainActivity : AppCompatActivity() {
 
         setContent {
             MyLoyaltyAppTheme {
+                val windowInfo = rememberWindowInfo()
+
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                 ) {
@@ -42,7 +45,8 @@ class MainActivity : AppCompatActivity() {
                     ) {
                         Navigation(
                             navController = navController,
-                            scaffoldState = scaffoldState
+                            scaffoldState = scaffoldState,
+                            windowInfo = windowInfo
                         )
                     }
                 }

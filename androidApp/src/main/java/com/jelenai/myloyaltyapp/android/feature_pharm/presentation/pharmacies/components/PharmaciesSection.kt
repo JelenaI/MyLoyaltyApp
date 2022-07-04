@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jelenai.myloyaltyapp.android.R
+import com.jelenai.myloyaltyapp.android.WindowInfo
 import com.jelenai.myloyaltyapp.android.feature_pharm.domain.model.Pharmacy
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGreen
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextBlack
@@ -29,13 +30,14 @@ import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextWhite
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun PharmaciesSection(
-    pharmacies: List<Pharmacy>
+    pharmacies: List<Pharmacy>,
+    windowInfo: WindowInfo
 ) {
     LazyVerticalGrid(
         modifier = Modifier
             .fillMaxHeight(),
         contentPadding = PaddingValues(start = 7.5.dp, end = 7.5.dp, bottom = 70.dp),
-        cells = GridCells.Fixed(2),
+        cells = GridCells.Fixed(if (windowInfo.screenWidthInfo is WindowInfo.WindowType.Compact) 2 else 4),
         content = {
             items(pharmacies.size) { index ->
                 PharmacyCard(pharmacy = pharmacies[index])

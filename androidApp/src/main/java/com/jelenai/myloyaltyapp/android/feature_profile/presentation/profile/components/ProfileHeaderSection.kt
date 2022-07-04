@@ -13,6 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jelenai.myloyaltyapp.android.R
+import com.jelenai.myloyaltyapp.android.WindowInfo
 import com.jelenai.myloyaltyapp.android.core.domain.models.User
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceMedium
 import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceSmall
@@ -22,45 +23,67 @@ import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextBlack
 fun ProfileHeaderSection(
     user: User,
     modifier: Modifier = Modifier,
-    onLogoutClick: () -> Unit = {}
+    onLogoutClick: () -> Unit = {},
+    windowInfo: WindowInfo
 ) {
-    Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(SpaceMedium),
-        horizontalAlignment = Alignment.Start,
-    ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+    if (windowInfo.screenWidthInfo is WindowInfo.WindowType.Compact) {
+        Column(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(SpaceMedium),
+            horizontalAlignment = Alignment.Start,
         ) {
-            Text(
-                text = user.firstName + " " + user.lastName,
-                fontSize = 26.sp
+            ProfileDetails(
+                user,
+                onLogoutClick
             )
-            IconButton(
-                onClick = onLogoutClick,
-                modifier = Modifier.size(30.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Logout,
-                    contentDescription = stringResource(id = R.string.logout),
-                    tint = TextBlack
-                )
-            }
         }
-        Spacer(modifier = Modifier.height(SpaceSmall))
-        Text(
-            text = user.username
-        )
-        Spacer(modifier = Modifier.height(SpaceSmall))
-        Text(
-            text = user.email
-        )
-        Spacer(modifier = Modifier.height(SpaceSmall))
-        Text(
-            text = user.phoneNumber
-        )
+    } else {
+        Column(
+            modifier = modifier
+                .fillMaxHeight()
+                .padding(SpaceMedium),
+            horizontalAlignment = Alignment.Start,
+        ) {
+            ProfileDetails(
+                user,
+                onLogoutClick
+            )
+        }
     }
+}
+
+@Composable
+fun ProfileDetails(user: User, onLogoutClick: () -> Unit) {
+    Row(
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = user.firstName + " " + user.lastName,
+            fontSize = 26.sp
+        )
+        IconButton(
+            onClick = onLogoutClick,
+            modifier = Modifier.size(30.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.Logout,
+                contentDescription = stringResource(id = R.string.logout),
+                tint = TextBlack
+            )
+        }
+    }
+    Spacer(modifier = Modifier.height(SpaceSmall))
+    Text(
+        text = user.username
+    )
+    Spacer(modifier = Modifier.height(SpaceSmall))
+    Text(
+        text = user.email
+    )
+    Spacer(modifier = Modifier.height(SpaceSmall))
+    Text(
+        text = user.phoneNumber
+    )
 }

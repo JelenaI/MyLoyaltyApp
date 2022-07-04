@@ -3,8 +3,6 @@ package com.jelenai.myloyaltyapp.android.feature_profile.presentation.profile
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.Text
@@ -19,6 +17,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.jelenai.myloyaltyapp.android.R
+import com.jelenai.myloyaltyapp.android.WindowInfo
 import com.jelenai.myloyaltyapp.android.core.domain.models.User
 import com.jelenai.myloyaltyapp.android.core.presentation.UiEvent
 import com.jelenai.myloyaltyapp.android.core.presentation.util.asString
@@ -33,7 +32,8 @@ import kotlinx.coroutines.flow.collectLatest
 fun ProfileScreen(
     scaffoldState: ScaffoldState,
     onLogout: () -> Unit = {},
-    viewModel: ProfileViewModel = hiltViewModel()
+    viewModel: ProfileViewModel = hiltViewModel(),
+    windowInfo: WindowInfo
 ) {
     val state = viewModel.state.value
     val context = LocalContext.current
@@ -51,44 +51,29 @@ fun ProfileScreen(
         }
     }
     Box(modifier = Modifier.fillMaxSize()) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Top
-        ) {
-            ProfileHeaderSection(
-                modifier = Modifier.background(LightGreen),
-                user = User(
-                    userId = state.profile?.userId ?: "",
-                    username = state.profile?.username ?: "",
-                    firstName = state.profile?.firstName ?: "",
-                    lastName = state.profile?.lastName ?: "",
-                    phoneNumber = state.profile?.phoneNumber ?: "",
-                    email = state.profile?.email ?: ""
-                ),
-                onLogoutClick = {
-                    viewModel.onEvent(ProfileEvent.ShowLogoutDialog)
-                }
-            )
+        if (windowInfo.screenWidthInfo is WindowInfo.WindowType.Compact) {
             Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(SpaceMedium),
-                verticalArrangement = Arrangement.Top,
-                horizontalAlignment = Alignment.CenterHorizontally
+                modifier = Modifier.fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Top
             ) {
-                Spacer(modifier = Modifier.height(SpaceMedium))
-                Text(
-                    text = stringResource(id = R.string.points_description),
-                    fontSize = 20.sp
+                ProfilePoints(
+                    state,
+                    viewModel,
+                    windowInfo
                 )
-                Spacer(modifier = Modifier.height(SpaceLarge))
-                if (state.profile?.points?.isNotEmpty() == true) {
-                    Spacer(modifier = Modifier.height(SpaceMedium))
-                    PointsSection(
-                        points = state.profile.points
-                    )
-                }
+            }
+        } else {
+            Row(
+                modifier = Modifier.fillMaxSize(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                ProfilePoints(
+                    state,
+                    viewModel,
+                    windowInfo
+                )
             }
         }
         if (state.isLogoutDialogVisible) {
@@ -131,6 +116,46 @@ fun ProfileScreen(
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun ProfilePoints(state: ProfileState, viewModel: ProfileViewModel, windowInfo: WindowInfo) {
+    ProfileHeaderSection(
+        modifier = Modifier.background(LightGreen),
+        user = User(
+            userId = state.profile?.userId ?: "",
+            username = state.profile?.username ?: "",
+            firstName = state.profile?.firstName ?: "",
+            lastName = state.profile?.lastName ?: "",
+            phoneNumber = state.profile?.phoneNumber ?: "",
+            email = state.profile?.email ?: ""
+        ),
+        onLogoutClick = {
+            viewModel.onEvent(ProfileEvent.ShowLogoutDialog)
+        },
+        windowInfo = windowInfo
+    )
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(SpaceMedium),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Spacer(modifier = Modifier.height(SpaceMedium))
+        Text(
+            text = stringResource(id = R.string.points_description),
+            fontSize = 20.sp
+        )
+        Spacer(modifier = Modifier.height(SpaceLarge))
+        if (state.profile?.points?.isNotEmpty() == true) {
+            Spacer(modifier = Modifier.height(SpaceMedium))
+            PointsSection(
+                points = state.profile.points,
+                windowInfo = windowInfo
+            )
         }
     }
 }
