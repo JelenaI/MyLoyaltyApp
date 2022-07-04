@@ -46,21 +46,14 @@ class PharmacyViewModel @Inject constructor(
 
     fun getPharmacies() {
         viewModelScope.launch {
-            _state.value = state.value.copy(
-                isLoading = true
-            )
             val result = pharmaciesUseCase()
             when (result) {
                 is Resource.Success -> {
                     _state.value = state.value.copy(
-                        pharmacies = result.data,
-                        isLoading = false
+                        pharmacies = result.data
                     )
                 }
                 is Resource.Error -> {
-                    _state.value = state.value.copy(
-                        isLoading = false
-                    )
                     _eventFlow.emit(
                         UiEvent.ShowSnackbar(
                             uiText = result.uiText ?: UiText.unknownError()

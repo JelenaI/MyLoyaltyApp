@@ -198,11 +198,6 @@ fun RegisterScreen(
                     )
                 }
             }
-            if (registerState.isLoading) {
-                CircularProgressIndicator(
-                    modifier = Modifier.align(Alignment.CenterHorizontally)
-                )
-            }
         }
         Row(modifier = Modifier.align(Alignment.BottomCenter)) {
             Text(

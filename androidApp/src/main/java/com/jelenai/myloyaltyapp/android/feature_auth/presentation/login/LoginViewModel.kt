@@ -56,14 +56,10 @@ class LoginViewModel @Inject constructor(
 
     private fun login() {
         viewModelScope.launch {
-            _loginState.value = loginState.value.copy(
-                isLoading = true
-            )
             val loginResult = loginUseCase(
                 email = emailState.value.text,
                 password = passwordState.value.text
             )
-            _loginState.value = loginState.value.copy(isLoading = false)
             if (loginResult.emailError != null) {
                 _emailState.value = emailState.value.copy(
                     error = loginResult.emailError

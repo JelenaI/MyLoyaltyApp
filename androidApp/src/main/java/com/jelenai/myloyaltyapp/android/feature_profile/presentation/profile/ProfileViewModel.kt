@@ -47,21 +47,14 @@ class ProfileViewModel @Inject constructor(
 
     fun getProfile() {
         viewModelScope.launch {
-            _state.value = state.value.copy(
-                isLoading = true
-            )
             val result = profileUseCase.getProfile()
             when (result) {
                 is Resource.Success -> {
                     _state.value = state.value.copy(
-                        profile = result.data,
-                        isLoading = false
+                        profile = result.data
                     )
                 }
                 is Resource.Error -> {
-                    _state.value = state.value.copy(
-                        isLoading = false
-                    )
                     _eventFlow.emit(
                         UiEvent.ShowSnackbar(
                             uiText = result.uiText ?: UiText.unknownError()

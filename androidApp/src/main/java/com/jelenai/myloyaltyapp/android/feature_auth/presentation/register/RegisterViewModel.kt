@@ -88,7 +88,6 @@ class RegisterViewModel @Inject constructor(
 
     private fun register() {
         viewModelScope.launch {
-            _registerState.value = registerState.value.copy(isLoading = true)
             val registerResult = registerUseCase(
                 firstName = firstNameState.value.text,
                 lastName = lastNameState.value.text,
@@ -97,7 +96,6 @@ class RegisterViewModel @Inject constructor(
                 username = usernameState.value.text,
                 password = passwordState.value.text
             )
-            _registerState.value = registerState.value.copy(isLoading = false)
             if (registerResult.firstNameError != null) {
                 _firstNameState.value = firstNameState.value.copy(
                     error = registerResult.firstNameError

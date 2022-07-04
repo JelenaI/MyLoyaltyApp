@@ -122,12 +122,6 @@ fun LoginScreen(
                     )
                 }
             }
-            if (state.isLoading) {
-                CircularProgressIndicator(
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally)
-                )
-            }
         }
         Row(modifier = Modifier.align(Alignment.BottomCenter)) {
             Text(

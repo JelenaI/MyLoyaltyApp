@@ -43,21 +43,14 @@ class MapViewModel @Inject constructor(
 
     fun getBranches() {
         viewModelScope.launch {
-            _state.value = state.value.copy(
-                isLoading = true
-            )
             val result = branchesUseCase()
             when (result) {
                 is Resource.Success -> {
                     _state.value = state.value.copy(
-                        branches = result.data,
-                        isLoading = false
+                        branches = result.data
                     )
                 }
                 is Resource.Error -> {
-                    _state.value = state.value.copy(
-                        isLoading = false
-                    )
                     _eventFlow.emit(
                         UiEvent.ShowSnackbar(
                             uiText = result.uiText ?: UiText.unknownError()
