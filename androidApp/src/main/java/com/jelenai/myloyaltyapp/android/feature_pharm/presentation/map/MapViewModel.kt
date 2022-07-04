@@ -29,7 +29,8 @@ class MapViewModel @Inject constructor(
         when (event) {
             is MapEvent.ShowDetailsDialog -> {
                 _state.value = state.value.copy(
-                    isDetailsDialogVisible = true
+                    isDetailsDialogVisible = true,
+                    branchForDetailsDialog = event.branch
                 )
             }
             is MapEvent.DismissDetailsDialog -> {

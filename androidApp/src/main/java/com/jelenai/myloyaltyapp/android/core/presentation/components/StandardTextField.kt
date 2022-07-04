@@ -19,6 +19,9 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import com.jelenai.myloyaltyapp.android.R
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGray
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextBlack
+import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextWhite
 
 @Composable
 fun StandardTextField(
@@ -27,10 +30,6 @@ fun StandardTextField(
     hint: String = "",
     maxLength: Int = 400,
     error: String = "",
-    style: TextStyle = TextStyle(
-        color = MaterialTheme.colors.onBackground
-    ),
-    backgroundColor: Color = MaterialTheme.colors.onSurface,
     singleLine: Boolean = true,
     maxLines: Int = 1,
     keyboardType: KeyboardType = KeyboardType.Text,
@@ -53,9 +52,9 @@ fun StandardTextField(
                 }
             },
             maxLines = maxLines,
-            textStyle = style,
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = backgroundColor
+                backgroundColor = TextWhite,
+                textColor = TextBlack
             ),
             placeholder = {
                 Text(
@@ -86,7 +85,7 @@ fun StandardTextField(
                             } else {
                                 Icons.Filled.VisibilityOff
                             },
-                            tint = Color.White,
+                            tint = TextBlack,
                             contentDescription = if (isPasswordVisible) {
                                 stringResource(id = R.string.password_visible_content_description)
                             } else {

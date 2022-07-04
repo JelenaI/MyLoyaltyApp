@@ -7,5 +7,6 @@ data class MapState(
     val properties: MapProperties = MapProperties(),
     val branches: List<Branch>? = emptyList(),
     val isLoading: Boolean = false,
-    val isDetailsDialogVisible: Boolean = false
+    val isDetailsDialogVisible: Boolean = false,
+    val branchForDetailsDialog: Branch? = null
 )

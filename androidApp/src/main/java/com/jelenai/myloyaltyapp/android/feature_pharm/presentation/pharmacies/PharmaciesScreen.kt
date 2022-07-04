@@ -71,45 +71,5 @@ fun PharmaciesScreen(
                 )
             }
         }
-        if (state.isDetailsDialogVisible) {
-            Dialog(onDismissRequest = {
-                viewModel.onEvent(PharmacyEvent.DismissDetailsDialog)
-            }) {
-                Column(
-                    modifier = Modifier
-                        .background(
-                            color = MaterialTheme.colors.surface,
-                            shape = MaterialTheme.shapes.medium
-                        )
-                        .padding(SpaceMedium)
-                ) {
-                    Text(text = stringResource(id = R.string.do_you_want_to_logout))
-                    Spacer(modifier = Modifier.height(SpaceMedium))
-                    Row(
-                        horizontalArrangement = Arrangement.End,
-                        modifier = Modifier.align(Alignment.End)
-                    ) {
-                        Text(
-                            text = stringResource(id = R.string.no).uppercase(),
-                            color = MaterialTheme.colors.onBackground,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier.clickable {
-                                viewModel.onEvent(PharmacyEvent.DismissDetailsDialog)
-                            }
-                        )
-                        Spacer(modifier = Modifier.width(SpaceMedium))
-                        Text(
-                            text = stringResource(id = R.string.yes).uppercase(),
-                            color = MaterialTheme.colors.primary,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier.clickable {
-                                viewModel.onEvent(PharmacyEvent.ShowPharmacyOnMap)
-                                viewModel.onEvent(PharmacyEvent.DismissDetailsDialog)
-                            }
-                        )
-                    }
-                }
-            }
-        }
     }
 }

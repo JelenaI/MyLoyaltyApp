@@ -38,4 +38,6 @@
     <string name="points_description">Vaši poeni ostvareni u apotekama</string>
     <string name="pharmacies_description">Apoteke u kojima možete koristiti pogodnosti aplikacije</string>
     <string name="show_pharmacy_branches_on_map">Prikaži na mapi</string>
+    <string name="working_hours_hint">Radno vreme</string>
+    <string name="address_hint">Adresa</string>
 </resources>
