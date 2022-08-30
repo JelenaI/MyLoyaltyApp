@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android.core.data.dto.response
+package com.jelenai.myloyaltyapp.core.data.dto.response
 
 data class BasicApiResponse<T>(
     val successful: Boolean,
