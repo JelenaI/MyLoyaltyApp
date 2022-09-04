@@ -15,8 +15,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jelenai.myloyaltyapp.android.WindowInfo
-import com.jelenai.myloyaltyapp.android.feature_profile.domain.model.Points
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGreen
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.LightGreen
+import com.jelenai.myloyaltyapp.feature_profile.domain.model.Points
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

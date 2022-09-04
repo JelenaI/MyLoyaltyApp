@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android.util
+package com.jelenai.myloyaltyapp.util
 
 object Constants {
     const val SPLASH_SCREEN_DURATION = 1000L

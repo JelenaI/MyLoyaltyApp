@@ -15,9 +15,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.jelenai.myloyaltyapp.android.R
 import com.jelenai.myloyaltyapp.android.WindowInfo
 import com.jelenai.myloyaltyapp.android.core.presentation.UiEvent
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.SpaceMedium
 import com.jelenai.myloyaltyapp.android.core.presentation.util.asString
 import com.jelenai.myloyaltyapp.android.feature_pharm.presentation.pharmacies.components.PharmaciesSection
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceMedium
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable

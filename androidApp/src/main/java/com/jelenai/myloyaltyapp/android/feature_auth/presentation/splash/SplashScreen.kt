@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android.presentation.splash
+package com.jelenai.myloyaltyapp.android.feature_auth.presentation.splash
 
 import android.view.animation.OvershootInterpolator
 import androidx.compose.animation.core.Animatable
@@ -17,9 +17,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.jelenai.myloyaltyapp.android.R
 import com.jelenai.myloyaltyapp.android.core.presentation.UiEvent
-import com.jelenai.myloyaltyapp.android.feature_auth.presentation.splash.SplashViewModel
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGreen
-import com.jelenai.myloyaltyapp.android.util.Constants
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.LightGreen
+import com.jelenai.myloyaltyapp.util.Constants
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

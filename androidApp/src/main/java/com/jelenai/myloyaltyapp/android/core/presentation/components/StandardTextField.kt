@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android.presentation.components
+package com.jelenai.myloyaltyapp.android.core.presentation.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,18 +11,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import com.jelenai.myloyaltyapp.android.R
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.DarkGray
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGray
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextBlack
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextWhite
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.DarkGray
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.TextBlack
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.TextWhite
 
 @Composable
 fun StandardTextField(

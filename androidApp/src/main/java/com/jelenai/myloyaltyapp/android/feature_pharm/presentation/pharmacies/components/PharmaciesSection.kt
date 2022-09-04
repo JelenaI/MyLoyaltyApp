@@ -22,10 +22,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jelenai.myloyaltyapp.android.R
 import com.jelenai.myloyaltyapp.android.WindowInfo
-import com.jelenai.myloyaltyapp.android.feature_pharm.domain.model.Pharmacy
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGreen
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextBlack
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextWhite
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.LightGreen
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.TextBlack
+import com.jelenai.myloyaltyapp.feature_pharm.domain.model.Pharmacy
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

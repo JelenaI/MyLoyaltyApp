@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android.presentation.util
+package com.jelenai.myloyaltyapp.android.core.presentation.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.ScaffoldState
@@ -12,11 +12,11 @@ import com.jelenai.myloyaltyapp.android.WindowInfo
 import com.jelenai.myloyaltyapp.android.core.presentation.util.Screen
 import com.jelenai.myloyaltyapp.android.feature_auth.presentation.home.HomeScreen
 import com.jelenai.myloyaltyapp.android.feature_auth.presentation.login.LoginScreen
+import com.jelenai.myloyaltyapp.android.feature_auth.presentation.register.RegisterScreen
 import com.jelenai.myloyaltyapp.android.feature_pharm.presentation.map.MapScreen
 import com.jelenai.myloyaltyapp.android.feature_pharm.presentation.pharmacies.PharmaciesScreen
 import com.jelenai.myloyaltyapp.android.feature_profile.presentation.profile.ProfileScreen
-import com.jelenai.myloyaltyapp.android.presentation.registration.RegisterScreen
-import com.jelenai.myloyaltyapp.android.presentation.splash.SplashScreen
+import com.jelenai.myloyaltyapp.android.feature_auth.presentation.splash.SplashScreen
 
 @ExperimentalComposeUiApi
 @Composable

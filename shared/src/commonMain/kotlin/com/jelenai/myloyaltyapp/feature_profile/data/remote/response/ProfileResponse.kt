@@ -1,7 +1,7 @@
-package com.jelenai.myloyaltyapp.android.feature_profile.data.remote.response
+package com.jelenai.myloyaltyapp.feature_profile.data.remote.response
 
-import com.jelenai.myloyaltyapp.android.feature_profile.domain.model.Points
-import com.jelenai.myloyaltyapp.android.feature_profile.domain.model.Profile
+import com.jelenai.myloyaltyapp.feature_profile.domain.model.Points
+import com.jelenai.myloyaltyapp.feature_profile.domain.model.Profile
 
 data class ProfileResponse(
     val id: String,

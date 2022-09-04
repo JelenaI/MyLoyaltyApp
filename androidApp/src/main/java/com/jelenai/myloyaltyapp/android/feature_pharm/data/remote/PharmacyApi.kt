@@ -1,7 +1,7 @@
 package com.jelenai.myloyaltyapp.android.feature_pharm.data.remote
 
-import com.jelenai.myloyaltyapp.android.feature_pharm.data.remote.response.BranchResponse
-import com.jelenai.myloyaltyapp.android.feature_pharm.data.remote.response.PharmacyResponse
+import com.jelenai.myloyaltyapp.feature_pharm.data.remote.response.PharmacyResponse
+import com.jelenai.myloyaltyapp.feature_pharm.data.remote.response.BranchResponse
 import retrofit2.http.GET
 
 interface PharmacyApi {

@@ -2,7 +2,7 @@ package com.jelenai.myloyaltyapp.android.core.domain.util
 
 import android.util.Patterns
 import com.jelenai.myloyaltyapp.android.feature_auth.presentation.util.AuthError
-import com.jelenai.myloyaltyapp.android.util.Constants
+import com.jelenai.myloyaltyapp.util.Constants
 
 object ValidationUtil {
     fun validateFirstName(firstName: String): AuthError? {

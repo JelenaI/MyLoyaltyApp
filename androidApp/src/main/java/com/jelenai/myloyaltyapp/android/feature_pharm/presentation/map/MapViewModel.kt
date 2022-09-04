@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jelenai.myloyaltyapp.android.core.presentation.UiEvent
-import com.jelenai.myloyaltyapp.android.core.util.Event
+import com.jelenai.myloyaltyapp.core.util.Event
 import com.jelenai.myloyaltyapp.android.core.util.Resource
 import com.jelenai.myloyaltyapp.android.core.util.UiText
 import com.jelenai.myloyaltyapp.android.feature_pharm.domain.use_case.GetBranchesUseCase

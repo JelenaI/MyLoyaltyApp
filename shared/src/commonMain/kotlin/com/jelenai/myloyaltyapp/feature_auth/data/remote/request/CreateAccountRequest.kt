@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android.feature_auth.data.remote.request
+package com.jelenai.myloyaltyapp.feature_auth.data.remote.request
 
 data class CreateAccountRequest(
     val firstName: String,

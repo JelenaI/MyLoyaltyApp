@@ -4,7 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jelenai.myloyaltyapp.android.core.domain.states.StandardTextFieldState
+import com.jelenai.myloyaltyapp.core.domain.states.StandardTextFieldState
 import com.jelenai.myloyaltyapp.android.core.presentation.UiEvent
 import com.jelenai.myloyaltyapp.android.core.util.Resource
 import com.jelenai.myloyaltyapp.android.core.util.UiText

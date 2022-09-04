@@ -1,6 +1,6 @@
 package com.jelenai.myloyaltyapp.android.core.presentation
 
-import com.jelenai.myloyaltyapp.android.core.util.Event
+import com.jelenai.myloyaltyapp.core.util.Event
 import com.jelenai.myloyaltyapp.android.core.util.UiText
 
 sealed class UiEvent : Event() {

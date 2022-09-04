@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android.core.domain.models
+package com.jelenai.myloyaltyapp.core.domain.models
 
 data class User(
     val userId: String,

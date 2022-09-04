@@ -22,32 +22,32 @@ class RegisterUseCase(
         val usernameError = ValidationUtil.validateUsername(username)
         val passwordError = ValidationUtil.validatePassword(password)
 
-        if (firstNameError != null
-            || lastNameError != null
-            || phoneNumberError != null
-            || emailError != null
-            || usernameError != null
-            || passwordError != null
+        if (firstNameError == null
+            && lastNameError == null
+            && phoneNumberError == null
+            && emailError == null
+            && usernameError == null
+            && passwordError == null
         ) {
-            return RegisterResult(
-                firstNameError = firstNameError,
-                lastNameError = lastNameError,
-                phoneNumberError = phoneNumberError,
-                emailError = emailError,
-                usernameError = usernameError,
-                passwordError = passwordError
+            val result = repository.register(
+                firstName.trim(),
+                lastName.trim(),
+                phoneNumber.trim(),
+                email.trim(),
+                username.trim(),
+                password.trim()
             )
+
+            return RegisterResult(result = result)
         }
 
-        val result = repository.register(
-            firstName.trim(),
-            lastName.trim(),
-            phoneNumber.trim(),
-            email.trim(),
-            username.trim(),
-            password.trim()
+        return RegisterResult(
+            firstNameError = firstNameError,
+            lastNameError = lastNameError,
+            phoneNumberError = phoneNumberError,
+            emailError = emailError,
+            usernameError = usernameError,
+            passwordError = passwordError
         )
-
-        return RegisterResult(result = result)
     }
 }

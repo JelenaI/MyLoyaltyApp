@@ -2,7 +2,6 @@ package com.jelenai.myloyaltyapp.android.feature_auth.presentation.login
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -12,18 +11,17 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.jelenai.myloyaltyapp.android.R
 import com.jelenai.myloyaltyapp.android.core.presentation.UiEvent
+import com.jelenai.myloyaltyapp.android.core.presentation.components.StandardTextField
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.AccentGreen
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.SpaceHuge
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.SpaceLarge
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.SpaceMedium
 import com.jelenai.myloyaltyapp.android.core.presentation.util.Screen
 import com.jelenai.myloyaltyapp.android.core.presentation.util.asString
 import com.jelenai.myloyaltyapp.android.feature_auth.presentation.util.AuthError
-import com.jelenai.myloyaltyapp.android.presentation.components.StandardTextField
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.AccentGreen
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceHuge
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceLarge
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceMedium
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable

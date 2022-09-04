@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.jelenai.myloyaltyapp.android.core.domain.use_case.GetOwnUserIdUseCase
-import com.jelenai.myloyaltyapp.android.util.Constants
+import com.jelenai.myloyaltyapp.util.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

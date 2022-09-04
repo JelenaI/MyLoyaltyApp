@@ -1,6 +1,6 @@
 package com.jelenai.myloyaltyapp.android.feature_auth.presentation.util
 
-import com.jelenai.myloyaltyapp.android.core.util.Error
+import com.jelenai.myloyaltyapp.core.util.Error
 
 sealed class AuthError : Error() {
     object FieldEmpty : AuthError()

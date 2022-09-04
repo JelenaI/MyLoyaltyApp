@@ -1,9 +1,9 @@
 package com.jelenai.myloyaltyapp.android.feature_auth.data.remote
 
 import com.jelenai.myloyaltyapp.core.data.dto.response.BasicApiResponse
-import com.jelenai.myloyaltyapp.android.feature_auth.data.remote.request.CreateAccountRequest
-import com.jelenai.myloyaltyapp.android.feature_auth.data.remote.request.LoginRequest
-import com.jelenai.myloyaltyapp.android.feature_auth.data.remote.response.AuthResponse
+import com.jelenai.myloyaltyapp.feature_auth.data.remote.request.CreateAccountRequest
+import com.jelenai.myloyaltyapp.feature_auth.data.remote.request.LoginRequest
+import com.jelenai.myloyaltyapp.feature_auth.data.remote.response.AuthResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST

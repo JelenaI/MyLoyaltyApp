@@ -7,8 +7,8 @@ import com.jelenai.myloyaltyapp.android.core.domain.use_case.GetOwnUserIdUseCase
 import com.jelenai.myloyaltyapp.android.core.util.Resource
 import com.jelenai.myloyaltyapp.android.core.util.UiText
 import com.jelenai.myloyaltyapp.android.feature_profile.data.remote.ProfileApi
-import com.jelenai.myloyaltyapp.android.feature_profile.domain.model.Profile
-import com.jelenai.myloyaltyapp.android.util.Constants
+import com.jelenai.myloyaltyapp.feature_profile.domain.model.Profile
+import com.jelenai.myloyaltyapp.util.Constants
 import retrofit2.HttpException
 import java.io.IOException
 

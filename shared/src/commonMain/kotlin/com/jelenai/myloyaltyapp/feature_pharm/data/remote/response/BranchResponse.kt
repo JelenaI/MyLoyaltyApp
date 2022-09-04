@@ -1,7 +1,7 @@
-package com.jelenai.myloyaltyapp.android.feature_pharm.data.remote.response
+package com.jelenai.myloyaltyapp.feature_pharm.data.remote.response
 
-import com.jelenai.myloyaltyapp.android.feature_pharm.domain.model.Branch
-import com.jelenai.myloyaltyapp.android.feature_pharm.domain.model.WorkingHours
+import com.jelenai.myloyaltyapp.feature_pharm.domain.model.Branch
+import com.jelenai.myloyaltyapp.feature_pharm.domain.model.WorkingHours
 
 data class BranchResponse(
     val name: String,

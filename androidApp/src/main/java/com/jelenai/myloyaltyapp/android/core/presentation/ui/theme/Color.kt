@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android.presentation.ui.theme
+package com.jelenai.myloyaltyapp.android.core.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

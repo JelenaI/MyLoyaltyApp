@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android.feature_pharm.domain.model
+package com.jelenai.myloyaltyapp.feature_pharm.domain.model
 
 data class Pharmacy(
     val name: String,

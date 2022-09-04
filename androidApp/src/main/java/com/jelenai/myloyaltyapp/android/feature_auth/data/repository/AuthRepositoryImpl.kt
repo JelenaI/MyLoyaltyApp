@@ -6,10 +6,10 @@ import com.jelenai.myloyaltyapp.android.core.util.Resource
 import com.jelenai.myloyaltyapp.android.core.util.SimpleResource
 import com.jelenai.myloyaltyapp.android.core.util.UiText
 import com.jelenai.myloyaltyapp.android.feature_auth.data.remote.AuthApi
-import com.jelenai.myloyaltyapp.android.feature_auth.data.remote.request.CreateAccountRequest
-import com.jelenai.myloyaltyapp.android.feature_auth.data.remote.request.LoginRequest
 import com.jelenai.myloyaltyapp.android.feature_auth.domain.repository.AuthRepository
-import com.jelenai.myloyaltyapp.android.util.Constants
+import com.jelenai.myloyaltyapp.util.Constants
+import com.jelenai.myloyaltyapp.feature_auth.data.remote.request.CreateAccountRequest
+import com.jelenai.myloyaltyapp.feature_auth.data.remote.request.LoginRequest
 import retrofit2.HttpException
 import java.io.IOException
 

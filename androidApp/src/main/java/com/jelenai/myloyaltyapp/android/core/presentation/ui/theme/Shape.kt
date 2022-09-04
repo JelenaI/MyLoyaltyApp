@@ -1,4 +1,4 @@
-package com.jelenai.myloyaltyapp.android.presentation.ui.theme
+package com.jelenai.myloyaltyapp.android.core.presentation.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

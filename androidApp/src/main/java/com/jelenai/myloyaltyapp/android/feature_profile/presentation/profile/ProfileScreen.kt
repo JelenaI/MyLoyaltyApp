@@ -18,14 +18,14 @@ import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.jelenai.myloyaltyapp.android.R
 import com.jelenai.myloyaltyapp.android.WindowInfo
-import com.jelenai.myloyaltyapp.android.core.domain.models.User
+import com.jelenai.myloyaltyapp.core.domain.models.User
 import com.jelenai.myloyaltyapp.android.core.presentation.UiEvent
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.LightGreen
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.SpaceLarge
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.SpaceMedium
 import com.jelenai.myloyaltyapp.android.core.presentation.util.asString
 import com.jelenai.myloyaltyapp.android.feature_profile.presentation.profile.components.PointsSection
 import com.jelenai.myloyaltyapp.android.feature_profile.presentation.profile.components.ProfileHeaderSection
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGreen
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceLarge
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceMedium
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable

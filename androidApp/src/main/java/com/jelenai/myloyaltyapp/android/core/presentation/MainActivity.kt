@@ -12,10 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.jelenai.myloyaltyapp.android.core.presentation.components.Navigation
 import com.jelenai.myloyaltyapp.android.core.presentation.components.StandardScaffold
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.MyLoyaltyAppTheme
 import com.jelenai.myloyaltyapp.android.core.presentation.util.Screen
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.MyLoyaltyAppTheme
-import com.jelenai.myloyaltyapp.android.presentation.util.Navigation
 import com.jelenai.myloyaltyapp.android.rememberWindowInfo
 import dagger.hilt.android.AndroidEntryPoint
 

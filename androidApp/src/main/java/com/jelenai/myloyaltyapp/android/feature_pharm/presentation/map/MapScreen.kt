@@ -23,9 +23,9 @@ import com.google.maps.android.compose.Marker
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.jelenai.myloyaltyapp.android.R
 import com.jelenai.myloyaltyapp.android.core.presentation.UiEvent
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.SpaceMedium
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.SpaceSmall
 import com.jelenai.myloyaltyapp.android.core.presentation.util.asString
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceMedium
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceSmall
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable

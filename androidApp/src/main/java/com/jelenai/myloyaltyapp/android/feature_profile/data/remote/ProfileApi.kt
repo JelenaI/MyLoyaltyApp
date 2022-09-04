@@ -1,7 +1,7 @@
 package com.jelenai.myloyaltyapp.android.feature_profile.data.remote
 
 import com.jelenai.myloyaltyapp.core.data.dto.response.BasicApiResponse
-import com.jelenai.myloyaltyapp.android.feature_profile.data.remote.response.ProfileResponse
+import com.jelenai.myloyaltyapp.feature_profile.data.remote.response.ProfileResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

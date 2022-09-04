@@ -12,10 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.AccentGreen
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.DarkGreen
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.LightGray
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextWhite
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.AccentGreen
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.DarkGreen
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.LightGray
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.TextWhite
 
 @Composable
 fun RowScope.StandardBottomNavigationItem(

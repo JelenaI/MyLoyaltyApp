@@ -1,6 +1,6 @@
-package com.jelenai.myloyaltyapp.android.core.domain.states
+package com.jelenai.myloyaltyapp.core.domain.states
 
-import com.jelenai.myloyaltyapp.android.core.util.Error
+import com.jelenai.myloyaltyapp.core.util.Error
 
 data class StandardTextFieldState(
     val text: String = "",

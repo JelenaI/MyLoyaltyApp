@@ -14,10 +14,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jelenai.myloyaltyapp.android.R
 import com.jelenai.myloyaltyapp.android.WindowInfo
-import com.jelenai.myloyaltyapp.android.core.domain.models.User
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceMedium
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.SpaceSmall
-import com.jelenai.myloyaltyapp.android.presentation.ui.theme.TextBlack
+import com.jelenai.myloyaltyapp.core.domain.models.User
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.SpaceMedium
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.SpaceSmall
+import com.jelenai.myloyaltyapp.android.core.presentation.ui.theme.TextBlack
 
 @Composable
 fun ProfileHeaderSection(

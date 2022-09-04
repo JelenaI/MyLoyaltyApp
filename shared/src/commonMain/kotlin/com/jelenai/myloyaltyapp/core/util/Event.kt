@@ -1,3 +1,3 @@
-package com.jelenai.myloyaltyapp.android.core.util
+package com.jelenai.myloyaltyapp.core.util
 
 abstract class Event
